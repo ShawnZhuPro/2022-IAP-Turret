@@ -49,13 +49,13 @@ public class ProtoTurret extends CommandBase {
     double kD = 0.0;
     PIDController pid = new PIDController(kP, kI, kD);
 
-    if(limeLight.get_tv() == 0.0){
+    if(limeLight.get_tv() == 0){
       driveTrain.tankDrive(pid.calculate(limeLight.get_tx()), -pid.calculate(limeLight.get_tx()));
     }
 
     else { 
 
-      if(limeLight.get_tv() == 1.0){
+      if(limeLight.get_tv() == 1){
       driveTrain.tankDrive(0.3, -0.3);
       }
     }
@@ -70,6 +70,6 @@ public class ProtoTurret extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return limeLight.get_tv() == 1.0;
+    return limeLight.get_tv() == 1;
   }
 }

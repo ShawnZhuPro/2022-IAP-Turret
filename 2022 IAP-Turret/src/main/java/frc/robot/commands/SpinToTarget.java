@@ -40,15 +40,11 @@ public class SpinToTarget extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-
-    if(limeLight.get_tv() == 0.0){
+    if(limeLight.get_tv() == 0){
       driveTrain.tankDrive(0.4, -0.4);
-    } 
-    
-    else {
-
-      if(limeLight.get_tv() == 1.0){
-        driveTrain.tankDrive(0.0, 0.0);
+    } else {
+      if(limeLight.get_tv() == 1){
+        driveTrain.tankDrive(0, 0);
       }
     }
   }
@@ -62,6 +58,6 @@ public class SpinToTarget extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return limeLight.get_tv() == 1.0;
+    return limeLight.get_tv() == 1;
   }
 }

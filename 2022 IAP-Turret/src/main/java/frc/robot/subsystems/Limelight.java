@@ -22,7 +22,7 @@ NetworkTableEntry tv = table.getEntry("tv");
 private double txNum;
 private double tyNum;
 private double taNum;
-private double tvNum;
+private int tvNum;
 
 double x = tx.getDouble(0.0);
 double y = ty.getDouble(0.0);
@@ -52,7 +52,7 @@ double area = ta.getDouble(0.0);
     return taNum;
   }
 
-  public double get_tv(){
+  public int get_tv(){
     return tvNum;
   }
 
@@ -67,7 +67,7 @@ double area = ta.getDouble(0.0);
     txNum = tx.getDouble(0.0);
     tyNum = ty.getDouble(0.0);
     taNum = ta.getDouble(0.0);
-    tvNum = tv.getDouble(0.0);
+    tvNum = (int) tv.getDouble(0.0);
 
   }
 
