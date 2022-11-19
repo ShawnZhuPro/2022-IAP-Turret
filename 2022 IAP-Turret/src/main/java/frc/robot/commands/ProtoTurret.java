@@ -52,10 +52,13 @@ public class ProtoTurret extends CommandBase {
     if(limeLight.get_tv() == 0.0){
       driveTrain.tankDrive(pid.calculate(limeLight.get_tx()), -pid.calculate(limeLight.get_tx()));
     }
-    else {
-      driveTrain.tankDrive(0.0, 0.0);
+
+    else { 
+
+      if(limeLight.get_tv() == 1.0){
+      driveTrain.tankDrive(0.3, -0.3);
+      }
     }
-    
   }
 
   // Called once the command ends or is interrupted.
@@ -67,6 +70,6 @@ public class ProtoTurret extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return limeLight.get_tv()==1;
+    return limeLight.get_tv() == 1.0;
   }
 }

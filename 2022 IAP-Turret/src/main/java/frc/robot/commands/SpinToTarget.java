@@ -43,12 +43,12 @@ public class SpinToTarget extends CommandBase {
 
     if(limeLight.get_tv() == 0.0){
       driveTrain.tankDrive(0.4, -0.4);
-
-    } else {
+    } 
+    
+    else {
 
       if(limeLight.get_tv() == 1.0){
-        driveTrain.tankDrive(0,0);
-
+        driveTrain.tankDrive(0.0, 0.0);
       }
     }
   }
@@ -62,6 +62,6 @@ public class SpinToTarget extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return limeLight.get_tv()==1.0;
+    return limeLight.get_tv() == 1.0;
   }
 }
