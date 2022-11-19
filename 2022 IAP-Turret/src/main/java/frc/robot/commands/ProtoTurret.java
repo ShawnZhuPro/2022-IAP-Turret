@@ -7,11 +7,12 @@ package frc.robot.commands;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Limelight;
+import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class SpinToTarget extends CommandBase {
+public class ProtoTurret extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   //private final ExampleSubsystem m_subsystem;
 
@@ -23,12 +24,13 @@ public class SpinToTarget extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public SpinToTarget(DriveTrain driveTrain, Limelight limeLight) {
+  public ProtoTurret(DriveTrain driveTrain, Limelight limeLight) {
    // m_subsystem = subsystem;
     this.driveTrain = driveTrain;
     this.limeLight = limeLight;
     // Use addRequirements() here to declare subsystem dependencies.
    // addRequirements(subsystem);
+   
   }
 
   // Called when the command is initially scheduled.
@@ -37,20 +39,23 @@ public class SpinToTarget extends CommandBase {
 
   }
 
+
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
 
+    double kP = 0.0;
+    double kI = 0.0;
+    double kD = 0.0;
+    PIDController pid = new PIDController(kP, kI, kD);
+
     if(limeLight.get_tv() == 0.0){
-      driveTrain.tankDrive(0.4, -0.4);
-
-    } else {
-
-      if(limeLight.get_tv() == 1.0){
-        driveTrain.tankDrive(0,0);
-
-      }
+      driveTrain.tankDrive(pid.calculate(limeLight.get_tx()), -pid.calculate(limeLight.get_tx()));
     }
+    else {
+      driveTrain.tankDrive(0.0, 0.0);
+    }
+    
   }
 
   // Called once the command ends or is interrupted.
@@ -62,6 +67,6 @@ public class SpinToTarget extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return limeLight.get_tv()==1.0;
+    return limeLight.get_tv()==1;
   }
 }
