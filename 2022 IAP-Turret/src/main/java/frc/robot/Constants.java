@@ -18,4 +18,14 @@ public final class Constants {
 
     public static final int joy1 = 0;
     public static final int joy2 = 1;
+
+    public final class MotorPorts {
+
+        public final static int TurretPort = 20; 
+        //We will be using the 4 port for the competition, but it might be taken
+    
+    }
+
 }
+
+
