@@ -42,12 +42,16 @@ public class Turret extends SubsystemBase {
   }
 
   public double getCW_Forward_LimitSw() {
+
+    //We have to manually set the limit switches to closed
     return motor.isFwdLimitSwitchClosed();
-  } //We have to manually set the limit switches to closed
+  } 
 
   public double getCCW_Reverse_LimitSw() {
+
+    //We have to manually set the limit switches to closed
     return motor.isRevLimitSwitchClosed();
-  } //We have to manually set the limit switches to closed
+  } 
 
   public void spin(double speed){
     motor.set(ControlMode.PercentOutput, speed);
@@ -56,6 +60,7 @@ public class Turret extends SubsystemBase {
   @Override
   public void periodic() {
     SmartDashboard.putNumber("Angle: ", getAngle());
+
     // Shows limit switch status on SmartDashboard
     // We need to adjust our code to align with what SmartDashboard returns
     SmartDashboard.putNumber("Forward Lim SW:", getCW_Forward_LimitSw());
