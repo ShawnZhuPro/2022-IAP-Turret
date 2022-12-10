@@ -6,25 +6,25 @@ package frc.robot.commands;
 
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Limelight;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class SpinToTarget extends CommandBase {
+public class w extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
 
   private final Limelight limeLight;
-  private final DriveTrain driveTrain;  
+  private final DriveTrain driveTrain;
   
-  public SpinToTarget(DriveTrain driveTrain, Limelight limeLight) {
+  
+  public w(DriveTrain driveTrain, Limelight limeLight) {
     this.driveTrain = driveTrain;
     this.limeLight = limeLight;
-
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+
   }
 
   // Called every time the scheduler runs while the command is scheduled.
