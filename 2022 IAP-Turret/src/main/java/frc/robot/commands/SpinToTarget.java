@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Limelight;
 import edu.wpi.first.wpilibj.Timer;
@@ -30,6 +31,7 @@ public class SpinToTarget extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+      SmartDashboard.putNumber("LimelightTVNUM", RobotContainer.getLime().get_tv());
 
       // This will spin the turret clockwise at 0.4/1.0 speed when there is no target in sight
       driveTrain.tankDrive(0.4, -0.4);

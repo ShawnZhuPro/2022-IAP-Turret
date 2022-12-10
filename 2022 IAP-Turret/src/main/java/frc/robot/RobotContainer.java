@@ -76,4 +76,7 @@ public class RobotContainer {
   public static DriveTrain getDrive(){
     return drive;
   }
+  public static Limelight getLime(){
+    return lime;
+  }
 }

@@ -81,7 +81,10 @@ double area = ta.getDouble(0.0);
     SmartDashboard.putNumber("LimelightY", y);
 
     // This will output the area of the target in SmartDashboard
-    SmartDashboard.putNumber("LimelightArea", area);   
+    SmartDashboard.putNumber("LimelightArea", area);  
+    
+    // This will output the value of the target in SmartDashboard (0 or 1)
+    SmartDashboard.putNumber("LimelightV", tvNum);   
     
     // We will be assigning tyNum to the double (-27.0 to 27.0) that limelight returns
     txNum = tx.getDouble(0.0);
