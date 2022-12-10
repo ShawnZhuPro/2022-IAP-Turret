@@ -38,6 +38,8 @@ public class Turret extends SubsystemBase {
   }
 
   public double getAngle() {
+    // Multiplies by 360 for the degrees of a single, full revolution and divides 
+    //by 4096.0 because that's the total amount of ticks per revolution
     return motor.getSelectedSensorPosition() * 360 / (4096.0);
   }
 
