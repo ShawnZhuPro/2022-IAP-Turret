@@ -25,16 +25,16 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   
-  //We have to initialize these three objects for the SpinToTarget command
+  //We have to initialize these objects for the SpinToTarget, ProtoTurret, and AutoTurret commands
   private final static DriveTrain drive = new DriveTrain();
   private final static Limelight lime = new Limelight();
+  private final static Turret turret = new Turret();
   private final static SpinToTarget spin = new SpinToTarget(drive, lime);
+  private final static ProtoTurret proto = new ProtoTurret(drive, lime);
+  private final static AutoTurret auto = new AutoTurret(lime, turret);
   
- // private final static TimedAuto timedAuto = new TimedAuto();
- // private final static DistanceAuto distanceAuto = new DistanceAuto(1.0);
   private static Joystick joy1;
   private static Joystick joy2;
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -61,6 +61,8 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     // We have to return the name of the object, which is spin for SpinToTarget in this case or the code will not work
     return spin;
+    //return proto;
+    //return auto;
   }
   public static Joystick getJoy1(){
     return joy1;
