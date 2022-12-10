@@ -61,7 +61,8 @@ public class AutoTurret extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-
+    
+    turret.resetEncoders();
     turret.setAngle(0);
 
   }
@@ -70,7 +71,7 @@ public class AutoTurret extends CommandBase {
   @Override
   public void execute() {
 
-    // 
+    // Switches from manual to auto if button is pressed
     if(RobotContainer.getJoy1().getTriggerReleased()){
       manualToggle = !manualToggle;
     }
