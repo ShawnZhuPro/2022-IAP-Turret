@@ -27,9 +27,12 @@ public class RobotContainer {
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  
+  //We have to initialize these three objects for the SpinToTarget command
   private final static DriveTrain drive = new DriveTrain();
   private final static Limelight lime = new Limelight();
   private final static SpinToTarget spin = new SpinToTarget(drive, lime);
+  
  // private final static TimedAuto timedAuto = new TimedAuto();
  // private final static DistanceAuto distanceAuto = new DistanceAuto(1.0);
   private static Joystick joy1;
@@ -56,7 +59,7 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    // An ExampleCommand will run in autonomous
+    // We have to return the name of the object, which is spin for SpinToTarget in this case or the code will not work
     return spin;
   }
   public static Joystick getJoy1(){
