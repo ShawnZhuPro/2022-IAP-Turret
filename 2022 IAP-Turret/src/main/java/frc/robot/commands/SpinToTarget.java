@@ -34,7 +34,7 @@ public class SpinToTarget extends CommandBase {
       SmartDashboard.putNumber("LimelightTVNUM", RobotContainer.getLime().get_tv());
 
       // This will spin the turret clockwise at 0.4/1.0 speed when there is no target in sight
-      driveTrain.tankDrive(0.4, -0.4);
+      driveTrain.tankDrive(0.2, -0.2);
   }
 
   // Called once the command ends or is interrupted.
