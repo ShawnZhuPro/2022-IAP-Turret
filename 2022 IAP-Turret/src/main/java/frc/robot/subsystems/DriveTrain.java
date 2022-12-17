@@ -23,7 +23,7 @@ public class DriveTrain extends SubsystemBase {
     left.configFactoryDefault();
     right.configFactoryDefault();
 
-    left.setInverted(false);
+    left.setInverted(true);
     right.setInverted(false);
 
 left.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);

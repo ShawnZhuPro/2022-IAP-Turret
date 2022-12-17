@@ -53,9 +53,10 @@ public class SearchAndSpin extends CommandBase {
       if(Math.abs(speed) < .2){
 
         speed = .3 * Math.abs(error)/error;
+
       }
 
-      if(Math.abs(error) <= 5){
+      if(Math.abs(error) <= 6){
         driveTrain.tankDrive(0,0);
       } else{
         driveTrain.tankDrive(-speed, speed);
