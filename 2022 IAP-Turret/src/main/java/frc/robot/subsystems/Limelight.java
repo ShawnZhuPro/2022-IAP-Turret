@@ -45,7 +45,7 @@ double area = ta.getDouble(0.0);
   public Limelight() {
 
     //We have to add these ports so that we can connect to 
-    //the limelight with our code through the robot's wifi
+    //the limelight with our code through the robt's wifi
     //PortForwarder.add(5800, "http://10.33.41.11:5801/", 5800);
     PortForwarder.add(5801, "http://limelight-drswish.local:5801", 5801);
     PortForwarder.add(5802, "http://limelight-drswish.local:5801", 5802);
