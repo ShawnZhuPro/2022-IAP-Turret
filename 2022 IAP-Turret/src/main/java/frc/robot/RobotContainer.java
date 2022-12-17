@@ -12,6 +12,7 @@ import frc.robot.commands.AutoTurret;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.LockOnTarget;
 import frc.robot.commands.ProtoTurret;
+import frc.robot.commands.SearchAndSpin;
 import frc.robot.commands.SpinToTarget;
 //import frc.robot.commands.TimedAuto;
 import frc.robot.subsystems.DriveTrain;
@@ -39,6 +40,8 @@ public class RobotContainer {
   private final static ProtoTurret proto = new ProtoTurret(drive, lime);
   private final static AutoTurret auto = new AutoTurret(lime, turret);
   private final static LockOnTarget lock = new LockOnTarget(drive, lime, 0);
+  private final static SearchAndSpin search = new SearchAndSpin(drive, lime, 0);
+
   
   private static Joystick joy1;
   private static Joystick joy2;
@@ -68,7 +71,8 @@ public class RobotContainer {
     //return spin;
     //return proto;
     //return auto;
-    return lock;
+    //return lock;
+    return search;
   }
   public static Joystick getJoy1(){
     return joy1;
