@@ -39,7 +39,7 @@ public class SearchAndSpin extends CommandBase {
   public void execute() {
 
     error = target - limeLight.get_tx();
-    double speed = .4*error/30;
+    double speed = .3*error/30;
 
       SmartDashboard.putNumber("Error", error);
       SmartDashboard.putNumber("LimelightTVNUM", RobotContainer.getLime().get_tv());
@@ -55,7 +55,11 @@ public class SearchAndSpin extends CommandBase {
         speed = .3 * Math.abs(error)/error;
       }
 
-      driveTrain.tankDrive(-speed, speed);
+      if(Math.abs(error) <= 5){
+        driveTrain.tankDrive(0,0);
+      } else{
+        driveTrain.tankDrive(-speed, speed);
+      } 
 
 
     } else if(limeLight.get_tv() == 0){
