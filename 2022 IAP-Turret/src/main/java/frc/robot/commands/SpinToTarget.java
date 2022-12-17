@@ -31,10 +31,18 @@ public class SpinToTarget extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+
       SmartDashboard.putNumber("LimelightTVNUM", RobotContainer.getLime().get_tv());
+      SmartDashboard.putNumber("LimelightX", RobotContainer.getLime().get_tx());
+      SmartDashboard.putNumber("LimelightY", RobotContainer.getLime().get_ty());
 
       // This will spin the turret clockwise at 0.4/1.0 speed when there is no target in sight
-      driveTrain.tankDrive(0.2, -0.2);
+      //if(limeLight.get_tv() == 0){
+        driveTrain.tankDrive(0.2, -0.2);
+     // } else if(limeLight.get_tv() == 1){
+       // driveTrain.tankDrive(0, 0);
+      //}
+      
   }
 
   // Called once the command ends or is interrupted.
