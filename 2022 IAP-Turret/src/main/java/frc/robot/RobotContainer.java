@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.AutoTurret;
 //import frc.robot.commands.DistanceAuto;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.LockOnTarget;
 import frc.robot.commands.ProtoTurret;
 import frc.robot.commands.SpinToTarget;
 //import frc.robot.commands.TimedAuto;
@@ -37,6 +38,7 @@ public class RobotContainer {
   private final static SpinToTarget spin = new SpinToTarget(drive, lime);
   private final static ProtoTurret proto = new ProtoTurret(drive, lime);
   private final static AutoTurret auto = new AutoTurret(lime, turret);
+  private final static LockOnTarget lock = new LockOnTarget(drive, lime, 0);
   
   private static Joystick joy1;
   private static Joystick joy2;
@@ -63,9 +65,10 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // We have to return the name of the object, which is spin for SpinToTarget in this case or the code will not work
-    return spin;
+    //return spin;
     //return proto;
     //return auto;
+    return lock;
   }
   public static Joystick getJoy1(){
     return joy1;
